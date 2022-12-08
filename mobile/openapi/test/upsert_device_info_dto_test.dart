@@ -11,11 +11,11 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for UpdateDeviceInfoDto
+// tests for UpsertDeviceInfoDto
 void main() {
-  // final instance = UpdateDeviceInfoDto();
+  // final instance = UpsertDeviceInfoDto();
 
-  group('test UpdateDeviceInfoDto', () {
+  group('test UpsertDeviceInfoDto', () {
     // DeviceTypeEnum deviceType
     test('to test the property `deviceType`', () async {
       // TODO

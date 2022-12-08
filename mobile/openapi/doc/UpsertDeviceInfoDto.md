@@ -1,4 +1,4 @@
-# openapi.model.UpdateDeviceInfoDto
+# openapi.model.UpsertDeviceInfoDto
 
 ## Load the model package
 ```dart

@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-class CreateDeviceInfoDto {
-  /// Returns a new [CreateDeviceInfoDto] instance.
-  CreateDeviceInfoDto({
+class UpsertDeviceInfoDto {
+  /// Returns a new [UpsertDeviceInfoDto] instance.
+  UpsertDeviceInfoDto({
     required this.deviceType,
     required this.deviceId,
     this.isAutoBackup,
@@ -31,7 +31,7 @@ class CreateDeviceInfoDto {
   bool? isAutoBackup;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CreateDeviceInfoDto &&
+  bool operator ==(Object other) => identical(this, other) || other is UpsertDeviceInfoDto &&
      other.deviceType == deviceType &&
      other.deviceId == deviceId &&
      other.isAutoBackup == isAutoBackup;
@@ -44,7 +44,7 @@ class CreateDeviceInfoDto {
     (isAutoBackup == null ? 0 : isAutoBackup!.hashCode);
 
   @override
-  String toString() => 'CreateDeviceInfoDto[deviceType=$deviceType, deviceId=$deviceId, isAutoBackup=$isAutoBackup]';
+  String toString() => 'UpsertDeviceInfoDto[deviceType=$deviceType, deviceId=$deviceId, isAutoBackup=$isAutoBackup]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
@@ -58,10 +58,10 @@ class CreateDeviceInfoDto {
     return _json;
   }
 
-  /// Returns a new [CreateDeviceInfoDto] instance and imports its values from
+  /// Returns a new [UpsertDeviceInfoDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static CreateDeviceInfoDto? fromJson(dynamic value) {
+  static UpsertDeviceInfoDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -70,13 +70,13 @@ class CreateDeviceInfoDto {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "CreateDeviceInfoDto[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "CreateDeviceInfoDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "UpsertDeviceInfoDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "UpsertDeviceInfoDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return CreateDeviceInfoDto(
+      return UpsertDeviceInfoDto(
         deviceType: DeviceTypeEnum.fromJson(json[r'deviceType'])!,
         deviceId: mapValueOfType<String>(json, r'deviceId')!,
         isAutoBackup: mapValueOfType<bool>(json, r'isAutoBackup'),
@@ -85,11 +85,11 @@ class CreateDeviceInfoDto {
     return null;
   }
 
-  static List<CreateDeviceInfoDto>? listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <CreateDeviceInfoDto>[];
+  static List<UpsertDeviceInfoDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <UpsertDeviceInfoDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = CreateDeviceInfoDto.fromJson(row);
+        final value = UpsertDeviceInfoDto.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -98,12 +98,12 @@ class CreateDeviceInfoDto {
     return result.toList(growable: growable);
   }
 
-  static Map<String, CreateDeviceInfoDto> mapFromJson(dynamic json) {
-    final map = <String, CreateDeviceInfoDto>{};
+  static Map<String, UpsertDeviceInfoDto> mapFromJson(dynamic json) {
+    final map = <String, UpsertDeviceInfoDto>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = CreateDeviceInfoDto.fromJson(entry.value);
+        final value = UpsertDeviceInfoDto.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -112,13 +112,13 @@ class CreateDeviceInfoDto {
     return map;
   }
 
-  // maps a json object with a list of CreateDeviceInfoDto-objects as value to a dart map
-  static Map<String, List<CreateDeviceInfoDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<CreateDeviceInfoDto>>{};
+  // maps a json object with a list of UpsertDeviceInfoDto-objects as value to a dart map
+  static Map<String, List<UpsertDeviceInfoDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<UpsertDeviceInfoDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = CreateDeviceInfoDto.listFromJson(entry.value, growable: growable,);
+        final value = UpsertDeviceInfoDto.listFromJson(entry.value, growable: growable,);
         if (value != null) {
           map[entry.key] = value;
         }
