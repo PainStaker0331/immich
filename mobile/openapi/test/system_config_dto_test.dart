@@ -11,10 +11,21 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for SystemConfigKey
+// tests for SystemConfigDto
 void main() {
+  // final instance = SystemConfigDto();
 
-  group('test SystemConfigKey', () {
+  group('test SystemConfigDto', () {
+    // SystemConfigFFmpegDto ffmpeg
+    test('to test the property `ffmpeg`', () async {
+      // TODO
+    });
+
+    // SystemConfigOAuthDto oauth
+    test('to test the property `oauth`', () async {
+      // TODO
+    });
+
 
   });
 

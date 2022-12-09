@@ -10,36 +10,42 @@
 
 part of openapi.api;
 
-class SystemConfigResponseDto {
-  /// Returns a new [SystemConfigResponseDto] instance.
-  SystemConfigResponseDto({
-    this.config = const [],
+class SystemConfigDto {
+  /// Returns a new [SystemConfigDto] instance.
+  SystemConfigDto({
+    required this.ffmpeg,
+    required this.oauth,
   });
 
-  List<SystemConfigResponseItem> config;
+  SystemConfigFFmpegDto ffmpeg;
+
+  SystemConfigOAuthDto oauth;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is SystemConfigResponseDto &&
-     other.config == config;
+  bool operator ==(Object other) => identical(this, other) || other is SystemConfigDto &&
+     other.ffmpeg == ffmpeg &&
+     other.oauth == oauth;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (config.hashCode);
+    (ffmpeg.hashCode) +
+    (oauth.hashCode);
 
   @override
-  String toString() => 'SystemConfigResponseDto[config=$config]';
+  String toString() => 'SystemConfigDto[ffmpeg=$ffmpeg, oauth=$oauth]';
 
   Map<String, dynamic> toJson() {
     final _json = <String, dynamic>{};
-      _json[r'config'] = config;
+      _json[r'ffmpeg'] = ffmpeg;
+      _json[r'oauth'] = oauth;
     return _json;
   }
 
-  /// Returns a new [SystemConfigResponseDto] instance and imports its values from
+  /// Returns a new [SystemConfigDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static SystemConfigResponseDto? fromJson(dynamic value) {
+  static SystemConfigDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -48,24 +54,25 @@ class SystemConfigResponseDto {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "SystemConfigResponseDto[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "SystemConfigResponseDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "SystemConfigDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "SystemConfigDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return SystemConfigResponseDto(
-        config: SystemConfigResponseItem.listFromJson(json[r'config'])!,
+      return SystemConfigDto(
+        ffmpeg: SystemConfigFFmpegDto.fromJson(json[r'ffmpeg'])!,
+        oauth: SystemConfigOAuthDto.fromJson(json[r'oauth'])!,
       );
     }
     return null;
   }
 
-  static List<SystemConfigResponseDto>? listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <SystemConfigResponseDto>[];
+  static List<SystemConfigDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <SystemConfigDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = SystemConfigResponseDto.fromJson(row);
+        final value = SystemConfigDto.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -74,12 +81,12 @@ class SystemConfigResponseDto {
     return result.toList(growable: growable);
   }
 
-  static Map<String, SystemConfigResponseDto> mapFromJson(dynamic json) {
-    final map = <String, SystemConfigResponseDto>{};
+  static Map<String, SystemConfigDto> mapFromJson(dynamic json) {
+    final map = <String, SystemConfigDto>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = SystemConfigResponseDto.fromJson(entry.value);
+        final value = SystemConfigDto.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -88,13 +95,13 @@ class SystemConfigResponseDto {
     return map;
   }
 
-  // maps a json object with a list of SystemConfigResponseDto-objects as value to a dart map
-  static Map<String, List<SystemConfigResponseDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<SystemConfigResponseDto>>{};
+  // maps a json object with a list of SystemConfigDto-objects as value to a dart map
+  static Map<String, List<SystemConfigDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<SystemConfigDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = SystemConfigResponseDto.listFromJson(entry.value, growable: growable,);
+        final value = SystemConfigDto.listFromJson(entry.value, growable: growable,);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -105,7 +112,8 @@ class SystemConfigResponseDto {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'config',
+    'ffmpeg',
+    'oauth',
   };
 }
 

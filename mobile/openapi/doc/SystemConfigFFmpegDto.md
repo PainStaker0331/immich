@@ -1,4 +1,4 @@
-# openapi.model.SystemConfigResponseDto
+# openapi.model.SystemConfigFFmpegDto
 
 ## Load the model package
 ```dart
@@ -8,7 +8,11 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**config** | [**List<SystemConfigResponseItem>**](SystemConfigResponseItem.md) |  | [default to const []]
+**crf** | **String** |  | 
+**preset** | **String** |  | 
+**targetVideoCodec** | **String** |  | 
+**targetAudioCodec** | **String** |  | 
+**targetScaling** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
