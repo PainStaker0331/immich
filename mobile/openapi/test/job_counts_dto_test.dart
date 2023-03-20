@@ -11,11 +11,11 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for JobCounts
+// tests for JobCountsDto
 void main() {
-  // final instance = JobCounts();
+  // final instance = JobCountsDto();
 
-  group('test JobCounts', () {
+  group('test JobCountsDto', () {
     // int active
     test('to test the property `active`', () async {
       // TODO

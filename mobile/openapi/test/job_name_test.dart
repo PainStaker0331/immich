@@ -11,10 +11,10 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for JobId
+// tests for JobName
 void main() {
 
-  group('test JobId', () {
+  group('test JobName', () {
 
   });
 

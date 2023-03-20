@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-class JobCounts {
-  /// Returns a new [JobCounts] instance.
-  JobCounts({
+class JobCountsDto {
+  /// Returns a new [JobCountsDto] instance.
+  JobCountsDto({
     required this.active,
     required this.completed,
     required this.failed,
@@ -31,7 +31,7 @@ class JobCounts {
   int waiting;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is JobCounts &&
+  bool operator ==(Object other) => identical(this, other) || other is JobCountsDto &&
      other.active == active &&
      other.completed == completed &&
      other.failed == failed &&
@@ -48,7 +48,7 @@ class JobCounts {
     (waiting.hashCode);
 
   @override
-  String toString() => 'JobCounts[active=$active, completed=$completed, failed=$failed, delayed=$delayed, waiting=$waiting]';
+  String toString() => 'JobCountsDto[active=$active, completed=$completed, failed=$failed, delayed=$delayed, waiting=$waiting]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -60,10 +60,10 @@ class JobCounts {
     return json;
   }
 
-  /// Returns a new [JobCounts] instance and imports its values from
+  /// Returns a new [JobCountsDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static JobCounts? fromJson(dynamic value) {
+  static JobCountsDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -72,13 +72,13 @@ class JobCounts {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "JobCounts[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "JobCounts[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "JobCountsDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "JobCountsDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return JobCounts(
+      return JobCountsDto(
         active: mapValueOfType<int>(json, r'active')!,
         completed: mapValueOfType<int>(json, r'completed')!,
         failed: mapValueOfType<int>(json, r'failed')!,
@@ -89,11 +89,11 @@ class JobCounts {
     return null;
   }
 
-  static List<JobCounts>? listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <JobCounts>[];
+  static List<JobCountsDto>? listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <JobCountsDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = JobCounts.fromJson(row);
+        final value = JobCountsDto.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -102,12 +102,12 @@ class JobCounts {
     return result.toList(growable: growable);
   }
 
-  static Map<String, JobCounts> mapFromJson(dynamic json) {
-    final map = <String, JobCounts>{};
+  static Map<String, JobCountsDto> mapFromJson(dynamic json) {
+    final map = <String, JobCountsDto>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = JobCounts.fromJson(entry.value);
+        final value = JobCountsDto.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -116,13 +116,13 @@ class JobCounts {
     return map;
   }
 
-  // maps a json object with a list of JobCounts-objects as value to a dart map
-  static Map<String, List<JobCounts>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<JobCounts>>{};
+  // maps a json object with a list of JobCountsDto-objects as value to a dart map
+  static Map<String, List<JobCountsDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<JobCountsDto>>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = JobCounts.listFromJson(entry.value, growable: growable,);
+        final value = JobCountsDto.listFromJson(entry.value, growable: growable,);
         if (value != null) {
           map[entry.key] = value;
         }
