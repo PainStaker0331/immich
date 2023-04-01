@@ -11,25 +11,22 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-
-/// tests for JobApi
+// tests for QueueStatusDto
 void main() {
-  // final instance = JobApi();
+  // final instance = QueueStatusDto();
 
-  group('tests for JobApi', () {
-    // 
-    //
-    //Future<AllJobStatusResponseDto> getAllJobsStatus() async
-    test('test getAllJobsStatus', () async {
+  group('test QueueStatusDto', () {
+    // bool isActive
+    test('to test the property `isActive`', () async {
       // TODO
     });
 
-    // 
-    //
-    //Future<JobStatusDto> sendJobCommand(JobName jobId, JobCommandDto jobCommandDto) async
-    test('test sendJobCommand', () async {
+    // bool isPaused
+    test('to test the property `isPaused`', () async {
       // TODO
     });
+
 
   });
+
 }
