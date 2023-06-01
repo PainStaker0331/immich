@@ -11,28 +11,23 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for TagResponseDto
+// tests for AssetIdsResponseDto
 void main() {
-  // final instance = TagResponseDto();
+  // final instance = AssetIdsResponseDto();
 
-  group('test TagResponseDto', () {
-    // TagTypeEnum type
-    test('to test the property `type`', () async {
+  group('test AssetIdsResponseDto', () {
+    // String assetId
+    test('to test the property `assetId`', () async {
       // TODO
     });
 
-    // String id
-    test('to test the property `id`', () async {
+    // bool success
+    test('to test the property `success`', () async {
       // TODO
     });
 
-    // String name
-    test('to test the property `name`', () async {
-      // TODO
-    });
-
-    // String userId
-    test('to test the property `userId`', () async {
+    // String error
+    test('to test the property `error`', () async {
       // TODO
     });
 
