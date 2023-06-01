@@ -11,57 +11,57 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for AllJobStatusResponseDto
+// tests for SystemConfigJobDto
 void main() {
-  // final instance = AllJobStatusResponseDto();
+  // final instance = SystemConfigJobDto();
 
-  group('test AllJobStatusResponseDto', () {
-    // JobStatusDto thumbnailGeneration
+  group('test SystemConfigJobDto', () {
+    // JobSettingsDto thumbnailGeneration
     test('to test the property `thumbnailGeneration`', () async {
       // TODO
     });
 
-    // JobStatusDto metadataExtraction
+    // JobSettingsDto metadataExtraction
     test('to test the property `metadataExtraction`', () async {
       // TODO
     });
 
-    // JobStatusDto videoConversion
+    // JobSettingsDto videoConversion
     test('to test the property `videoConversion`', () async {
       // TODO
     });
 
-    // JobStatusDto objectTagging
+    // JobSettingsDto objectTagging
     test('to test the property `objectTagging`', () async {
       // TODO
     });
 
-    // JobStatusDto clipEncoding
+    // JobSettingsDto clipEncoding
     test('to test the property `clipEncoding`', () async {
       // TODO
     });
 
-    // JobStatusDto storageTemplateMigration
+    // JobSettingsDto storageTemplateMigration
     test('to test the property `storageTemplateMigration`', () async {
       // TODO
     });
 
-    // JobStatusDto backgroundTask
+    // JobSettingsDto backgroundTask
     test('to test the property `backgroundTask`', () async {
       // TODO
     });
 
-    // JobStatusDto search
+    // JobSettingsDto search
     test('to test the property `search`', () async {
       // TODO
     });
 
-    // JobStatusDto recognizeFaces
+    // JobSettingsDto recognizeFaces
     test('to test the property `recognizeFaces`', () async {
       // TODO
     });
 
-    // JobStatusDto sidecar
+    // JobSettingsDto sidecar
     test('to test the property `sidecar`', () async {
       // TODO
     });

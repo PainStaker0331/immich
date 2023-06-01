@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-class AllJobStatusResponseDto {
-  /// Returns a new [AllJobStatusResponseDto] instance.
-  AllJobStatusResponseDto({
+class SystemConfigJobDto {
+  /// Returns a new [SystemConfigJobDto] instance.
+  SystemConfigJobDto({
     required this.thumbnailGeneration,
     required this.metadataExtraction,
     required this.videoConversion,
@@ -25,28 +25,28 @@ class AllJobStatusResponseDto {
     required this.sidecar,
   });
 
-  JobStatusDto thumbnailGeneration;
+  JobSettingsDto thumbnailGeneration;
 
-  JobStatusDto metadataExtraction;
+  JobSettingsDto metadataExtraction;
 
-  JobStatusDto videoConversion;
+  JobSettingsDto videoConversion;
 
-  JobStatusDto objectTagging;
+  JobSettingsDto objectTagging;
 
-  JobStatusDto clipEncoding;
+  JobSettingsDto clipEncoding;
 
-  JobStatusDto storageTemplateMigration;
+  JobSettingsDto storageTemplateMigration;
 
-  JobStatusDto backgroundTask;
+  JobSettingsDto backgroundTask;
 
-  JobStatusDto search;
+  JobSettingsDto search;
 
-  JobStatusDto recognizeFaces;
+  JobSettingsDto recognizeFaces;
 
-  JobStatusDto sidecar;
+  JobSettingsDto sidecar;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AllJobStatusResponseDto &&
+  bool operator ==(Object other) => identical(this, other) || other is SystemConfigJobDto &&
      other.thumbnailGeneration == thumbnailGeneration &&
      other.metadataExtraction == metadataExtraction &&
      other.videoConversion == videoConversion &&
@@ -73,7 +73,7 @@ class AllJobStatusResponseDto {
     (sidecar.hashCode);
 
   @override
-  String toString() => 'AllJobStatusResponseDto[thumbnailGeneration=$thumbnailGeneration, metadataExtraction=$metadataExtraction, videoConversion=$videoConversion, objectTagging=$objectTagging, clipEncoding=$clipEncoding, storageTemplateMigration=$storageTemplateMigration, backgroundTask=$backgroundTask, search=$search, recognizeFaces=$recognizeFaces, sidecar=$sidecar]';
+  String toString() => 'SystemConfigJobDto[thumbnailGeneration=$thumbnailGeneration, metadataExtraction=$metadataExtraction, videoConversion=$videoConversion, objectTagging=$objectTagging, clipEncoding=$clipEncoding, storageTemplateMigration=$storageTemplateMigration, backgroundTask=$backgroundTask, search=$search, recognizeFaces=$recognizeFaces, sidecar=$sidecar]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -90,10 +90,10 @@ class AllJobStatusResponseDto {
     return json;
   }
 
-  /// Returns a new [AllJobStatusResponseDto] instance and imports its values from
+  /// Returns a new [SystemConfigJobDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static AllJobStatusResponseDto? fromJson(dynamic value) {
+  static SystemConfigJobDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -102,33 +102,33 @@ class AllJobStatusResponseDto {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "AllJobStatusResponseDto[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "AllJobStatusResponseDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "SystemConfigJobDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "SystemConfigJobDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return AllJobStatusResponseDto(
-        thumbnailGeneration: JobStatusDto.fromJson(json[r'thumbnailGeneration'])!,
-        metadataExtraction: JobStatusDto.fromJson(json[r'metadataExtraction'])!,
-        videoConversion: JobStatusDto.fromJson(json[r'videoConversion'])!,
-        objectTagging: JobStatusDto.fromJson(json[r'objectTagging'])!,
-        clipEncoding: JobStatusDto.fromJson(json[r'clipEncoding'])!,
-        storageTemplateMigration: JobStatusDto.fromJson(json[r'storageTemplateMigration'])!,
-        backgroundTask: JobStatusDto.fromJson(json[r'backgroundTask'])!,
-        search: JobStatusDto.fromJson(json[r'search'])!,
-        recognizeFaces: JobStatusDto.fromJson(json[r'recognizeFaces'])!,
-        sidecar: JobStatusDto.fromJson(json[r'sidecar'])!,
+      return SystemConfigJobDto(
+        thumbnailGeneration: JobSettingsDto.fromJson(json[r'thumbnailGeneration'])!,
+        metadataExtraction: JobSettingsDto.fromJson(json[r'metadataExtraction'])!,
+        videoConversion: JobSettingsDto.fromJson(json[r'videoConversion'])!,
+        objectTagging: JobSettingsDto.fromJson(json[r'objectTagging'])!,
+        clipEncoding: JobSettingsDto.fromJson(json[r'clipEncoding'])!,
+        storageTemplateMigration: JobSettingsDto.fromJson(json[r'storageTemplateMigration'])!,
+        backgroundTask: JobSettingsDto.fromJson(json[r'backgroundTask'])!,
+        search: JobSettingsDto.fromJson(json[r'search'])!,
+        recognizeFaces: JobSettingsDto.fromJson(json[r'recognizeFaces'])!,
+        sidecar: JobSettingsDto.fromJson(json[r'sidecar'])!,
       );
     }
     return null;
   }
 
-  static List<AllJobStatusResponseDto> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <AllJobStatusResponseDto>[];
+  static List<SystemConfigJobDto> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <SystemConfigJobDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = AllJobStatusResponseDto.fromJson(row);
+        final value = SystemConfigJobDto.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -137,12 +137,12 @@ class AllJobStatusResponseDto {
     return result.toList(growable: growable);
   }
 
-  static Map<String, AllJobStatusResponseDto> mapFromJson(dynamic json) {
-    final map = <String, AllJobStatusResponseDto>{};
+  static Map<String, SystemConfigJobDto> mapFromJson(dynamic json) {
+    final map = <String, SystemConfigJobDto>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = AllJobStatusResponseDto.fromJson(entry.value);
+        final value = SystemConfigJobDto.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -151,14 +151,14 @@ class AllJobStatusResponseDto {
     return map;
   }
 
-  // maps a json object with a list of AllJobStatusResponseDto-objects as value to a dart map
-  static Map<String, List<AllJobStatusResponseDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<AllJobStatusResponseDto>>{};
+  // maps a json object with a list of SystemConfigJobDto-objects as value to a dart map
+  static Map<String, List<SystemConfigJobDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<SystemConfigJobDto>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = AllJobStatusResponseDto.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = SystemConfigJobDto.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
