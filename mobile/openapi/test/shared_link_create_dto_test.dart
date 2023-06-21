@@ -11,11 +11,26 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for EditSharedLinkDto
+// tests for SharedLinkCreateDto
 void main() {
-  // final instance = EditSharedLinkDto();
+  // final instance = SharedLinkCreateDto();
 
-  group('test EditSharedLinkDto', () {
+  group('test SharedLinkCreateDto', () {
+    // SharedLinkType type
+    test('to test the property `type`', () async {
+      // TODO
+    });
+
+    // List<String> assetIds (default value: const [])
+    test('to test the property `assetIds`', () async {
+      // TODO
+    });
+
+    // String albumId
+    test('to test the property `albumId`', () async {
+      // TODO
+    });
+
     // String description
     test('to test the property `description`', () async {
       // TODO
@@ -26,17 +41,17 @@ void main() {
       // TODO
     });
 
-    // bool allowUpload
+    // bool allowUpload (default value: false)
     test('to test the property `allowUpload`', () async {
       // TODO
     });
 
-    // bool allowDownload
+    // bool allowDownload (default value: true)
     test('to test the property `allowDownload`', () async {
       // TODO
     });
 
-    // bool showExif
+    // bool showExif (default value: true)
     test('to test the property `showExif`', () async {
       // TODO
     });

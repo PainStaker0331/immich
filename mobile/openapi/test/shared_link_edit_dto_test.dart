@@ -11,13 +11,13 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for CreateAssetsShareLinkDto
+// tests for SharedLinkEditDto
 void main() {
-  // final instance = CreateAssetsShareLinkDto();
+  // final instance = SharedLinkEditDto();
 
-  group('test CreateAssetsShareLinkDto', () {
-    // List<String> assetIds (default value: const [])
-    test('to test the property `assetIds`', () async {
+  group('test SharedLinkEditDto', () {
+    // String description
+    test('to test the property `description`', () async {
       // TODO
     });
 
@@ -38,11 +38,6 @@ void main() {
 
     // bool showExif
     test('to test the property `showExif`', () async {
-      // TODO
-    });
-
-    // String description
-    test('to test the property `description`', () async {
       // TODO
     });
 

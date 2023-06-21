@@ -12,11 +12,21 @@ import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
 
-/// tests for ShareApi
+/// tests for SharedLinkApi
 void main() {
-  // final instance = ShareApi();
+  // final instance = SharedLinkApi();
 
-  group('tests for ShareApi', () {
+  group('tests for SharedLinkApi', () {
+    //Future<List<AssetIdsResponseDto>> addSharedLinkAssets(String id, AssetIdsDto assetIdsDto, { String key }) async
+    test('test addSharedLinkAssets', () async {
+      // TODO
+    });
+
+    //Future<SharedLinkResponseDto> createSharedLink(SharedLinkCreateDto sharedLinkCreateDto) async
+    test('test createSharedLink', () async {
+      // TODO
+    });
+
     //Future<List<SharedLinkResponseDto>> getAllSharedLinks() async
     test('test getAllSharedLinks', () async {
       // TODO
@@ -37,7 +47,12 @@ void main() {
       // TODO
     });
 
-    //Future<SharedLinkResponseDto> updateSharedLink(String id, EditSharedLinkDto editSharedLinkDto) async
+    //Future<List<AssetIdsResponseDto>> removeSharedLinkAssets(String id, AssetIdsDto assetIdsDto, { String key }) async
+    test('test removeSharedLinkAssets', () async {
+      // TODO
+    });
+
+    //Future<SharedLinkResponseDto> updateSharedLink(String id, SharedLinkEditDto sharedLinkEditDto) async
     test('test updateSharedLink', () async {
       // TODO
     });

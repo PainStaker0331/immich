@@ -10,15 +10,30 @@
 
 part of openapi.api;
 
-class EditSharedLinkDto {
-  /// Returns a new [EditSharedLinkDto] instance.
-  EditSharedLinkDto({
+class SharedLinkCreateDto {
+  /// Returns a new [SharedLinkCreateDto] instance.
+  SharedLinkCreateDto({
+    required this.type,
+    this.assetIds = const [],
+    this.albumId,
     this.description,
     this.expiresAt,
-    this.allowUpload,
-    this.allowDownload,
-    this.showExif,
+    this.allowUpload = false,
+    this.allowDownload = true,
+    this.showExif = true,
   });
+
+  SharedLinkType type;
+
+  List<String> assetIds;
+
+  ///
+  /// Please note: This property should have been non-nullable! Since the specification file
+  /// does not include a default value (using the "default:" property), however, the generated
+  /// source code must fall back to having a nullable type.
+  /// Consider adding a "default:" property in the specification file to hide this note.
+  ///
+  String? albumId;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -30,32 +45,17 @@ class EditSharedLinkDto {
 
   DateTime? expiresAt;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  bool? allowUpload;
+  bool allowUpload;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  bool? allowDownload;
+  bool allowDownload;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  bool? showExif;
+  bool showExif;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is EditSharedLinkDto &&
+  bool operator ==(Object other) => identical(this, other) || other is SharedLinkCreateDto &&
+     other.type == type &&
+     other.assetIds == assetIds &&
+     other.albumId == albumId &&
      other.description == description &&
      other.expiresAt == expiresAt &&
      other.allowUpload == allowUpload &&
@@ -65,17 +65,27 @@ class EditSharedLinkDto {
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
+    (type.hashCode) +
+    (assetIds.hashCode) +
+    (albumId == null ? 0 : albumId!.hashCode) +
     (description == null ? 0 : description!.hashCode) +
     (expiresAt == null ? 0 : expiresAt!.hashCode) +
-    (allowUpload == null ? 0 : allowUpload!.hashCode) +
-    (allowDownload == null ? 0 : allowDownload!.hashCode) +
-    (showExif == null ? 0 : showExif!.hashCode);
+    (allowUpload.hashCode) +
+    (allowDownload.hashCode) +
+    (showExif.hashCode);
 
   @override
-  String toString() => 'EditSharedLinkDto[description=$description, expiresAt=$expiresAt, allowUpload=$allowUpload, allowDownload=$allowDownload, showExif=$showExif]';
+  String toString() => 'SharedLinkCreateDto[type=$type, assetIds=$assetIds, albumId=$albumId, description=$description, expiresAt=$expiresAt, allowUpload=$allowUpload, allowDownload=$allowDownload, showExif=$showExif]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
+      json[r'type'] = this.type;
+      json[r'assetIds'] = this.assetIds;
+    if (this.albumId != null) {
+      json[r'albumId'] = this.albumId;
+    } else {
+      // json[r'albumId'] = null;
+    }
     if (this.description != null) {
       json[r'description'] = this.description;
     } else {
@@ -86,28 +96,16 @@ class EditSharedLinkDto {
     } else {
       // json[r'expiresAt'] = null;
     }
-    if (this.allowUpload != null) {
       json[r'allowUpload'] = this.allowUpload;
-    } else {
-      // json[r'allowUpload'] = null;
-    }
-    if (this.allowDownload != null) {
       json[r'allowDownload'] = this.allowDownload;
-    } else {
-      // json[r'allowDownload'] = null;
-    }
-    if (this.showExif != null) {
       json[r'showExif'] = this.showExif;
-    } else {
-      // json[r'showExif'] = null;
-    }
     return json;
   }
 
-  /// Returns a new [EditSharedLinkDto] instance and imports its values from
+  /// Returns a new [SharedLinkCreateDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static EditSharedLinkDto? fromJson(dynamic value) {
+  static SharedLinkCreateDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -116,28 +114,33 @@ class EditSharedLinkDto {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "EditSharedLinkDto[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "EditSharedLinkDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "SharedLinkCreateDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "SharedLinkCreateDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return EditSharedLinkDto(
+      return SharedLinkCreateDto(
+        type: SharedLinkType.fromJson(json[r'type'])!,
+        assetIds: json[r'assetIds'] is Iterable
+            ? (json[r'assetIds'] as Iterable).cast<String>().toList(growable: false)
+            : const [],
+        albumId: mapValueOfType<String>(json, r'albumId'),
         description: mapValueOfType<String>(json, r'description'),
         expiresAt: mapDateTime(json, r'expiresAt', ''),
-        allowUpload: mapValueOfType<bool>(json, r'allowUpload'),
-        allowDownload: mapValueOfType<bool>(json, r'allowDownload'),
-        showExif: mapValueOfType<bool>(json, r'showExif'),
+        allowUpload: mapValueOfType<bool>(json, r'allowUpload') ?? false,
+        allowDownload: mapValueOfType<bool>(json, r'allowDownload') ?? true,
+        showExif: mapValueOfType<bool>(json, r'showExif') ?? true,
       );
     }
     return null;
   }
 
-  static List<EditSharedLinkDto> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <EditSharedLinkDto>[];
+  static List<SharedLinkCreateDto> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <SharedLinkCreateDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = EditSharedLinkDto.fromJson(row);
+        final value = SharedLinkCreateDto.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -146,12 +149,12 @@ class EditSharedLinkDto {
     return result.toList(growable: growable);
   }
 
-  static Map<String, EditSharedLinkDto> mapFromJson(dynamic json) {
-    final map = <String, EditSharedLinkDto>{};
+  static Map<String, SharedLinkCreateDto> mapFromJson(dynamic json) {
+    final map = <String, SharedLinkCreateDto>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = EditSharedLinkDto.fromJson(entry.value);
+        final value = SharedLinkCreateDto.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -160,14 +163,14 @@ class EditSharedLinkDto {
     return map;
   }
 
-  // maps a json object with a list of EditSharedLinkDto-objects as value to a dart map
-  static Map<String, List<EditSharedLinkDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<EditSharedLinkDto>>{};
+  // maps a json object with a list of SharedLinkCreateDto-objects as value to a dart map
+  static Map<String, List<SharedLinkCreateDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<SharedLinkCreateDto>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = EditSharedLinkDto.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = SharedLinkCreateDto.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -175,6 +178,7 @@ class EditSharedLinkDto {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
+    'type',
   };
 }
 

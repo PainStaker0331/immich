@@ -10,18 +10,15 @@
 
 part of openapi.api;
 
-class CreateAssetsShareLinkDto {
-  /// Returns a new [CreateAssetsShareLinkDto] instance.
-  CreateAssetsShareLinkDto({
-    this.assetIds = const [],
+class SharedLinkEditDto {
+  /// Returns a new [SharedLinkEditDto] instance.
+  SharedLinkEditDto({
+    this.description,
     this.expiresAt,
     this.allowUpload,
     this.allowDownload,
     this.showExif,
-    this.description,
   });
-
-  List<String> assetIds;
 
   ///
   /// Please note: This property should have been non-nullable! Since the specification file
@@ -29,6 +26,8 @@ class CreateAssetsShareLinkDto {
   /// source code must fall back to having a nullable type.
   /// Consider adding a "default:" property in the specification file to hide this note.
   ///
+  String? description;
+
   DateTime? expiresAt;
 
   ///
@@ -55,39 +54,33 @@ class CreateAssetsShareLinkDto {
   ///
   bool? showExif;
 
-  ///
-  /// Please note: This property should have been non-nullable! Since the specification file
-  /// does not include a default value (using the "default:" property), however, the generated
-  /// source code must fall back to having a nullable type.
-  /// Consider adding a "default:" property in the specification file to hide this note.
-  ///
-  String? description;
-
   @override
-  bool operator ==(Object other) => identical(this, other) || other is CreateAssetsShareLinkDto &&
-     other.assetIds == assetIds &&
+  bool operator ==(Object other) => identical(this, other) || other is SharedLinkEditDto &&
+     other.description == description &&
      other.expiresAt == expiresAt &&
      other.allowUpload == allowUpload &&
      other.allowDownload == allowDownload &&
-     other.showExif == showExif &&
-     other.description == description;
+     other.showExif == showExif;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (assetIds.hashCode) +
+    (description == null ? 0 : description!.hashCode) +
     (expiresAt == null ? 0 : expiresAt!.hashCode) +
     (allowUpload == null ? 0 : allowUpload!.hashCode) +
     (allowDownload == null ? 0 : allowDownload!.hashCode) +
-    (showExif == null ? 0 : showExif!.hashCode) +
-    (description == null ? 0 : description!.hashCode);
+    (showExif == null ? 0 : showExif!.hashCode);
 
   @override
-  String toString() => 'CreateAssetsShareLinkDto[assetIds=$assetIds, expiresAt=$expiresAt, allowUpload=$allowUpload, allowDownload=$allowDownload, showExif=$showExif, description=$description]';
+  String toString() => 'SharedLinkEditDto[description=$description, expiresAt=$expiresAt, allowUpload=$allowUpload, allowDownload=$allowDownload, showExif=$showExif]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'assetIds'] = this.assetIds;
+    if (this.description != null) {
+      json[r'description'] = this.description;
+    } else {
+      // json[r'description'] = null;
+    }
     if (this.expiresAt != null) {
       json[r'expiresAt'] = this.expiresAt!.toUtc().toIso8601String();
     } else {
@@ -108,18 +101,13 @@ class CreateAssetsShareLinkDto {
     } else {
       // json[r'showExif'] = null;
     }
-    if (this.description != null) {
-      json[r'description'] = this.description;
-    } else {
-      // json[r'description'] = null;
-    }
     return json;
   }
 
-  /// Returns a new [CreateAssetsShareLinkDto] instance and imports its values from
+  /// Returns a new [SharedLinkEditDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static CreateAssetsShareLinkDto? fromJson(dynamic value) {
+  static SharedLinkEditDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
@@ -128,31 +116,28 @@ class CreateAssetsShareLinkDto {
       // Note 2: this code is stripped in release mode!
       assert(() {
         requiredKeys.forEach((key) {
-          assert(json.containsKey(key), 'Required key "CreateAssetsShareLinkDto[$key]" is missing from JSON.');
-          assert(json[key] != null, 'Required key "CreateAssetsShareLinkDto[$key]" has a null value in JSON.');
+          assert(json.containsKey(key), 'Required key "SharedLinkEditDto[$key]" is missing from JSON.');
+          assert(json[key] != null, 'Required key "SharedLinkEditDto[$key]" has a null value in JSON.');
         });
         return true;
       }());
 
-      return CreateAssetsShareLinkDto(
-        assetIds: json[r'assetIds'] is Iterable
-            ? (json[r'assetIds'] as Iterable).cast<String>().toList(growable: false)
-            : const [],
+      return SharedLinkEditDto(
+        description: mapValueOfType<String>(json, r'description'),
         expiresAt: mapDateTime(json, r'expiresAt', ''),
         allowUpload: mapValueOfType<bool>(json, r'allowUpload'),
         allowDownload: mapValueOfType<bool>(json, r'allowDownload'),
         showExif: mapValueOfType<bool>(json, r'showExif'),
-        description: mapValueOfType<String>(json, r'description'),
       );
     }
     return null;
   }
 
-  static List<CreateAssetsShareLinkDto> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <CreateAssetsShareLinkDto>[];
+  static List<SharedLinkEditDto> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <SharedLinkEditDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = CreateAssetsShareLinkDto.fromJson(row);
+        final value = SharedLinkEditDto.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -161,12 +146,12 @@ class CreateAssetsShareLinkDto {
     return result.toList(growable: growable);
   }
 
-  static Map<String, CreateAssetsShareLinkDto> mapFromJson(dynamic json) {
-    final map = <String, CreateAssetsShareLinkDto>{};
+  static Map<String, SharedLinkEditDto> mapFromJson(dynamic json) {
+    final map = <String, SharedLinkEditDto>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = CreateAssetsShareLinkDto.fromJson(entry.value);
+        final value = SharedLinkEditDto.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -175,14 +160,14 @@ class CreateAssetsShareLinkDto {
     return map;
   }
 
-  // maps a json object with a list of CreateAssetsShareLinkDto-objects as value to a dart map
-  static Map<String, List<CreateAssetsShareLinkDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<CreateAssetsShareLinkDto>>{};
+  // maps a json object with a list of SharedLinkEditDto-objects as value to a dart map
+  static Map<String, List<SharedLinkEditDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<SharedLinkEditDto>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = CreateAssetsShareLinkDto.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = SharedLinkEditDto.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -190,7 +175,6 @@ class CreateAssetsShareLinkDto {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'assetIds',
   };
 }
 
