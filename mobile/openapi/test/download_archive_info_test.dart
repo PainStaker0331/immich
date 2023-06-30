@@ -11,11 +11,16 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for DownloadFilesDto
+// tests for DownloadArchiveInfo
 void main() {
-  // final instance = DownloadFilesDto();
+  // final instance = DownloadArchiveInfo();
 
-  group('test DownloadFilesDto', () {
+  group('test DownloadArchiveInfo', () {
+    // int size
+    test('to test the property `size`', () async {
+      // TODO
+    });
+
     // List<String> assetIds (default value: const [])
     test('to test the property `assetIds`', () async {
       // TODO
