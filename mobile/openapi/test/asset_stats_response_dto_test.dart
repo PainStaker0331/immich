@@ -11,32 +11,22 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for AssetCountByUserIdResponseDto
+// tests for AssetStatsResponseDto
 void main() {
-  // final instance = AssetCountByUserIdResponseDto();
+  // final instance = AssetStatsResponseDto();
 
-  group('test AssetCountByUserIdResponseDto', () {
-    // int audio (default value: 0)
-    test('to test the property `audio`', () async {
+  group('test AssetStatsResponseDto', () {
+    // int images
+    test('to test the property `images`', () async {
       // TODO
     });
 
-    // int photos (default value: 0)
-    test('to test the property `photos`', () async {
-      // TODO
-    });
-
-    // int videos (default value: 0)
+    // int videos
     test('to test the property `videos`', () async {
       // TODO
     });
 
-    // int other (default value: 0)
-    test('to test the property `other`', () async {
-      // TODO
-    });
-
-    // int total (default value: 0)
+    // int total
     test('to test the property `total`', () async {
       // TODO
     });
