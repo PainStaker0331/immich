@@ -1,4 +1,4 @@
-# openapi.model.PersonResponseDto
+# openapi.model.PeopleResponseDto
 
 ## Load the model package
 ```dart
@@ -8,10 +8,9 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**id** | **String** |  | 
-**name** | **String** |  | 
-**thumbnailPath** | **String** |  | 
-**isHidden** | **bool** |  | 
+**total** | **num** |  | 
+**visible** | **num** |  | 
+**people** | [**List<PersonResponseDto>**](PersonResponseDto.md) |  | [default to const []]
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
