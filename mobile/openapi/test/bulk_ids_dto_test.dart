@@ -11,13 +11,13 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for RemoveAssetsDto
+// tests for BulkIdsDto
 void main() {
-  // final instance = RemoveAssetsDto();
+  // final instance = BulkIdsDto();
 
-  group('test RemoveAssetsDto', () {
-    // List<String> assetIds (default value: const [])
-    test('to test the property `assetIds`', () async {
+  group('test BulkIdsDto', () {
+    // List<String> ids (default value: const [])
+    test('to test the property `ids`', () async {
       // TODO
     });
 

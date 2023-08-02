@@ -10,53 +10,53 @@
 
 part of openapi.api;
 
-class RemoveAssetsDto {
-  /// Returns a new [RemoveAssetsDto] instance.
-  RemoveAssetsDto({
-    this.assetIds = const [],
+class BulkIdsDto {
+  /// Returns a new [BulkIdsDto] instance.
+  BulkIdsDto({
+    this.ids = const [],
   });
 
-  List<String> assetIds;
+  List<String> ids;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is RemoveAssetsDto &&
-     other.assetIds == assetIds;
+  bool operator ==(Object other) => identical(this, other) || other is BulkIdsDto &&
+     other.ids == ids;
 
   @override
   int get hashCode =>
     // ignore: unnecessary_parenthesis
-    (assetIds.hashCode);
+    (ids.hashCode);
 
   @override
-  String toString() => 'RemoveAssetsDto[assetIds=$assetIds]';
+  String toString() => 'BulkIdsDto[ids=$ids]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
-      json[r'assetIds'] = this.assetIds;
+      json[r'ids'] = this.ids;
     return json;
   }
 
-  /// Returns a new [RemoveAssetsDto] instance and imports its values from
+  /// Returns a new [BulkIdsDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static RemoveAssetsDto? fromJson(dynamic value) {
+  static BulkIdsDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
-      return RemoveAssetsDto(
-        assetIds: json[r'assetIds'] is Iterable
-            ? (json[r'assetIds'] as Iterable).cast<String>().toList(growable: false)
+      return BulkIdsDto(
+        ids: json[r'ids'] is Iterable
+            ? (json[r'ids'] as Iterable).cast<String>().toList(growable: false)
             : const [],
       );
     }
     return null;
   }
 
-  static List<RemoveAssetsDto> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <RemoveAssetsDto>[];
+  static List<BulkIdsDto> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <BulkIdsDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = RemoveAssetsDto.fromJson(row);
+        final value = BulkIdsDto.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -65,12 +65,12 @@ class RemoveAssetsDto {
     return result.toList(growable: growable);
   }
 
-  static Map<String, RemoveAssetsDto> mapFromJson(dynamic json) {
-    final map = <String, RemoveAssetsDto>{};
+  static Map<String, BulkIdsDto> mapFromJson(dynamic json) {
+    final map = <String, BulkIdsDto>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = RemoveAssetsDto.fromJson(entry.value);
+        final value = BulkIdsDto.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -79,14 +79,14 @@ class RemoveAssetsDto {
     return map;
   }
 
-  // maps a json object with a list of RemoveAssetsDto-objects as value to a dart map
-  static Map<String, List<RemoveAssetsDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<RemoveAssetsDto>>{};
+  // maps a json object with a list of BulkIdsDto-objects as value to a dart map
+  static Map<String, List<BulkIdsDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<BulkIdsDto>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = RemoveAssetsDto.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = BulkIdsDto.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;
@@ -94,7 +94,7 @@ class RemoveAssetsDto {
 
   /// The list of required keys that must be present in a JSON.
   static const requiredKeys = <String>{
-    'assetIds',
+    'ids',
   };
 }
 
