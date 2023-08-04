@@ -11,18 +11,18 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for AssetCountByTimeBucketResponseDto
+// tests for TimeBucketResponseDto
 void main() {
-  // final instance = AssetCountByTimeBucketResponseDto();
+  // final instance = TimeBucketResponseDto();
 
-  group('test AssetCountByTimeBucketResponseDto', () {
-    // List<AssetCountByTimeBucket> buckets (default value: const [])
-    test('to test the property `buckets`', () async {
+  group('test TimeBucketResponseDto', () {
+    // int count
+    test('to test the property `count`', () async {
       // TODO
     });
 
-    // int totalCount
-    test('to test the property `totalCount`', () async {
+    // String timeBucket
+    test('to test the property `timeBucket`', () async {
       // TODO
     });
 

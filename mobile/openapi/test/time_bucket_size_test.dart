@@ -11,10 +11,10 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for TimeGroupEnum
+// tests for TimeBucketSize
 void main() {
 
-  group('test TimeGroupEnum', () {
+  group('test TimeBucketSize', () {
 
   });
 

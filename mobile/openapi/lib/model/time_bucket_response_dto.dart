@@ -10,9 +10,9 @@
 
 part of openapi.api;
 
-class AssetCountByTimeBucket {
-  /// Returns a new [AssetCountByTimeBucket] instance.
-  AssetCountByTimeBucket({
+class TimeBucketResponseDto {
+  /// Returns a new [TimeBucketResponseDto] instance.
+  TimeBucketResponseDto({
     required this.count,
     required this.timeBucket,
   });
@@ -22,7 +22,7 @@ class AssetCountByTimeBucket {
   String timeBucket;
 
   @override
-  bool operator ==(Object other) => identical(this, other) || other is AssetCountByTimeBucket &&
+  bool operator ==(Object other) => identical(this, other) || other is TimeBucketResponseDto &&
      other.count == count &&
      other.timeBucket == timeBucket;
 
@@ -33,7 +33,7 @@ class AssetCountByTimeBucket {
     (timeBucket.hashCode);
 
   @override
-  String toString() => 'AssetCountByTimeBucket[count=$count, timeBucket=$timeBucket]';
+  String toString() => 'TimeBucketResponseDto[count=$count, timeBucket=$timeBucket]';
 
   Map<String, dynamic> toJson() {
     final json = <String, dynamic>{};
@@ -42,14 +42,14 @@ class AssetCountByTimeBucket {
     return json;
   }
 
-  /// Returns a new [AssetCountByTimeBucket] instance and imports its values from
+  /// Returns a new [TimeBucketResponseDto] instance and imports its values from
   /// [value] if it's a [Map], null otherwise.
   // ignore: prefer_constructors_over_static_methods
-  static AssetCountByTimeBucket? fromJson(dynamic value) {
+  static TimeBucketResponseDto? fromJson(dynamic value) {
     if (value is Map) {
       final json = value.cast<String, dynamic>();
 
-      return AssetCountByTimeBucket(
+      return TimeBucketResponseDto(
         count: mapValueOfType<int>(json, r'count')!,
         timeBucket: mapValueOfType<String>(json, r'timeBucket')!,
       );
@@ -57,11 +57,11 @@ class AssetCountByTimeBucket {
     return null;
   }
 
-  static List<AssetCountByTimeBucket> listFromJson(dynamic json, {bool growable = false,}) {
-    final result = <AssetCountByTimeBucket>[];
+  static List<TimeBucketResponseDto> listFromJson(dynamic json, {bool growable = false,}) {
+    final result = <TimeBucketResponseDto>[];
     if (json is List && json.isNotEmpty) {
       for (final row in json) {
-        final value = AssetCountByTimeBucket.fromJson(row);
+        final value = TimeBucketResponseDto.fromJson(row);
         if (value != null) {
           result.add(value);
         }
@@ -70,12 +70,12 @@ class AssetCountByTimeBucket {
     return result.toList(growable: growable);
   }
 
-  static Map<String, AssetCountByTimeBucket> mapFromJson(dynamic json) {
-    final map = <String, AssetCountByTimeBucket>{};
+  static Map<String, TimeBucketResponseDto> mapFromJson(dynamic json) {
+    final map = <String, TimeBucketResponseDto>{};
     if (json is Map && json.isNotEmpty) {
       json = json.cast<String, dynamic>(); // ignore: parameter_assignments
       for (final entry in json.entries) {
-        final value = AssetCountByTimeBucket.fromJson(entry.value);
+        final value = TimeBucketResponseDto.fromJson(entry.value);
         if (value != null) {
           map[entry.key] = value;
         }
@@ -84,14 +84,14 @@ class AssetCountByTimeBucket {
     return map;
   }
 
-  // maps a json object with a list of AssetCountByTimeBucket-objects as value to a dart map
-  static Map<String, List<AssetCountByTimeBucket>> mapListFromJson(dynamic json, {bool growable = false,}) {
-    final map = <String, List<AssetCountByTimeBucket>>{};
+  // maps a json object with a list of TimeBucketResponseDto-objects as value to a dart map
+  static Map<String, List<TimeBucketResponseDto>> mapListFromJson(dynamic json, {bool growable = false,}) {
+    final map = <String, List<TimeBucketResponseDto>>{};
     if (json is Map && json.isNotEmpty) {
       // ignore: parameter_assignments
       json = json.cast<String, dynamic>();
       for (final entry in json.entries) {
-        map[entry.key] = AssetCountByTimeBucket.listFromJson(entry.value, growable: growable,);
+        map[entry.key] = TimeBucketResponseDto.listFromJson(entry.value, growable: growable,);
       }
     }
     return map;

@@ -1,4 +1,4 @@
-# openapi.model.AssetCountByTimeBucket
+# openapi.model.TimeBucketResponseDto
 
 ## Load the model package
 ```dart
