@@ -11,11 +11,11 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for ServerVersionReponseDto
+// tests for ServerVersionResponseDto
 void main() {
-  // final instance = ServerVersionReponseDto();
+  // final instance = ServerVersionResponseDto();
 
-  group('test ServerVersionReponseDto', () {
+  group('test ServerVersionResponseDto', () {
     // int major
     test('to test the property `major`', () async {
       // TODO
