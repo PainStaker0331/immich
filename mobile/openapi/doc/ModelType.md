@@ -1,4 +1,4 @@
-# openapi.model.SystemConfigMachineLearningDto
+# openapi.model.ModelType
 
 ## Load the model package
 ```dart
@@ -8,11 +8,6 @@ import 'package:openapi/api.dart';
 ## Properties
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**classification** | [**ClassificationConfig**](ClassificationConfig.md) |  | 
-**clip** | [**CLIPConfig**](CLIPConfig.md) |  | 
-**enabled** | **bool** |  | 
-**facialRecognition** | [**RecognitionConfig**](RecognitionConfig.md) |  | 
-**url** | **String** |  | 
 
 [[Back to Model list]](../README.md#documentation-for-models) [[Back to API list]](../README.md#documentation-for-api-endpoints) [[Back to README]](../README.md)
 
