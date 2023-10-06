@@ -11,10 +11,21 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for DeleteAssetStatus
+// tests for SystemConfigTrashDto
 void main() {
+  // final instance = SystemConfigTrashDto();
 
-  group('test DeleteAssetStatus', () {
+  group('test SystemConfigTrashDto', () {
+    // int days
+    test('to test the property `days`', () async {
+      // TODO
+    });
+
+    // bool enabled
+    test('to test the property `enabled`', () async {
+      // TODO
+    });
+
 
   });
 

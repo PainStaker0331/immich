@@ -11,11 +11,16 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for DeleteAssetDto
+// tests for AssetBulkDeleteDto
 void main() {
-  // final instance = DeleteAssetDto();
+  // final instance = AssetBulkDeleteDto();
 
-  group('test DeleteAssetDto', () {
+  group('test AssetBulkDeleteDto', () {
+    // bool force
+    test('to test the property `force`', () async {
+      // TODO
+    });
+
     // List<String> ids (default value: const [])
     test('to test the property `ids`', () async {
       // TODO
