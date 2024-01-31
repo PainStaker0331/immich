@@ -11,18 +11,23 @@
 import 'package:openapi/api.dart';
 import 'package:test/test.dart';
 
-// tests for SystemConfigLibraryDto
+// tests for SystemConfigLibraryWatchDto
 void main() {
-  // final instance = SystemConfigLibraryDto();
+  // final instance = SystemConfigLibraryWatchDto();
 
-  group('test SystemConfigLibraryDto', () {
-    // SystemConfigLibraryScanDto scan
-    test('to test the property `scan`', () async {
+  group('test SystemConfigLibraryWatchDto', () {
+    // bool enabled
+    test('to test the property `enabled`', () async {
       // TODO
     });
 
-    // SystemConfigLibraryWatchDto watch
-    test('to test the property `watch`', () async {
+    // int interval
+    test('to test the property `interval`', () async {
+      // TODO
+    });
+
+    // bool usePolling
+    test('to test the property `usePolling`', () async {
       // TODO
     });
 
