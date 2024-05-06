@@ -294,7 +294,7 @@ jobs:
       - name: Run API generation
         run: make open-api
       - name: Find file changes
-        uses: tj-actions/verify-changed-files@v19
+        uses: tj-actions/verify-changed-files@v20
         id: verify-changed-files
         with:
           files: |
@@ -349,7 +349,7 @@ jobs:
         run: npm run typeorm:migrations:generate ./src/infra/migrations/TestMigration
 
       - name: Find file changes
-        uses: tj-actions/verify-changed-files@v19
+        uses: tj-actions/verify-changed-files@v20
         id: verify-changed-files
         with:
           files: |
@@ -367,7 +367,7 @@ jobs:
           DB_URL: postgres://postgres:postgres@localhost:5432/immich
 
       - name: Find file changes
-        uses: tj-actions/verify-changed-files@v19
+        uses: tj-actions/verify-changed-files@v20
         id: verify-changed-sql-files
         with:
           files: |
